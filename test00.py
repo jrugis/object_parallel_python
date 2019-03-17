@@ -11,32 +11,41 @@ import time
 import numpy as np
 
 # for loop
-start = time.time()
-incr = np.double(0.1)
-x = incr
-for i in range(1000000):
+def A():
+    incr = np.double(0.1)
+    x = incr
+    for i in range(1000000):
+        k = np.log(x)
+        l = np.sin(x)
+        m = np.cos(x)
+        x += incr
+
+# numpy iterate
+def B():
+    x = np.arange(start=0.1, stop=10000.0, step=0.1, dtype="double")
+    for t in x:
+        k = np.log(t)
+        l = np.sin(t)
+        m = np.cos(t)
+    
+# numpy array
+def C():
+    x = np.arange(start=0.1, stop=10000.0, step=0.1, dtype="double")
     k = np.log(x)
     l = np.sin(x)
     m = np.cos(x)
-    x += incr
-end = time.time()
-print(end - start)
-
-# numpy array
+    
 start = time.time()
-x = np.arange(start=0.1, stop=10000.0, step=0.1, dtype="double")
-k = np.log(x)
-l = np.sin(x)
-m = np.cos(x)
+A()
 end = time.time()
 print(end - start)
 
-# numpy iterate
 start = time.time()
-for t in x:
-    k = np.log(t)
-    l = np.sin(t)
-    m = np.cos(t)
+B()
 end = time.time()
 print(end - start)
 
+start = time.time()
+end = time.time()
+C()
+print(end - start)
