@@ -12,7 +12,7 @@ import numpy as np
 
 # for loop
 start = time.time()
-incr = 0.1
+incr = np.double(0.1)
 x = incr
 for i in range(1000000):
     k = np.log(x)
