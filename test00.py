@@ -3,17 +3,20 @@
 #
 
 import time
-import math as m
+import numpy as np
 from multiprocessing import Process, Pipe
 
 # execution timer
 start = time.time()
 
-for i in range(10000000):
-    k = m.log(i+1)
-    l = m.sin(i)
-    l = m.cos(i)
-
+incr = np.float32(0.1)
+x = incr
+for i in range(1000000):
+    k = np.log(x)
+    l = np.sin(x)
+    m = np.cos(x)
+    x += incr
+    
 # execution timer
 end = time.time()
 print(end - start)
